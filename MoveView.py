@@ -2,6 +2,13 @@ import sublime
 import sublime_plugin
 
 
+def get_settings():
+    return sublime.load_settings("MoveTabs.sublime-settings")
+
+def get_setting(key, default=None):
+    return get_settings().get(key, default)
+
+
 class MoveView(sublime_plugin.WindowCommand):
 
     def run(self, direction):
