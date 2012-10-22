@@ -28,15 +28,17 @@ class MoveView(sublime_plugin.WindowCommand):
         num_views = len(views)
         target_index = index
 
+        wrap = get_setting('wrap_around', True)
+
         if direction == 'left':
             if index > 0:
                 index -= 1
-            else:
+            elif wrap:  # Wrap around
                 index = num_views - 1
         elif direction == 'right':
             if index < num_views - 1:
                 index += 1
-            else:
+            elif wrap:  # Wrap around
                 index = 0
         else:
             print 'Unrecognized direction:', direction + '. Use left or right.'
