@@ -41,7 +41,7 @@ class MoveView(sublime_plugin.WindowCommand):
             elif wrap:  # Wrap around
                 index = 0
         else:
-            print 'Unrecognized direction:', direction + '. Use left or right.'
+            print('Unrecognized direction:', direction + '. Use left or right.')
 
         # Move the view
         if target_index != index:
